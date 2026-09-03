@@ -6,6 +6,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// 정적 파일(HTML) 제공을 위한 폴더 설정
+app.use(express.static('.'));
+
 app.post("/confirm", function (req, res) {
   // 클라이언트에서 받은 JSON 요청 바디입니다.
   const { paymentKey, orderId, amount } = req.body;
